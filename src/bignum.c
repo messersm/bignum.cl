@@ -110,38 +110,44 @@ int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2) {
     bignum_elem_t result;
     size_t length = 0;
 
-    for (int i=0; i < rop->max_length; i++) {
+    // Calculate the maximum length of relevant indices.
+    size_t max_length;
+    if (op1->length > op2->length)
+        max_length = op1->length + 1;
+    else
+        max_length = op2->length + 1;
+
+    if (max_length > rop->max_length)
+        max_length = rop->max_length;
+
+    for (int i=0; i < max_length; i++) {
         // Since rop could point to op1 or op2, the order of
         // these commands is VERY important.
         result = 0;
 
-        if (carry) {
+        if (carry)
             result += carry;
-            length = i;
-        }
 
         carry = 0;
 
         if (i < op1->length) {
             result += op1->v[i];
-            length = i;
 
             if (result < op1->v[i])
                 carry = 1;
         }
 
         if (i < op2->length) {
-            length = i;
             result += op2->v[i];
 
             if (result < op2->v[i])
                 carry = 1;
         }
 
-        rop->v[i] = result;
+        if (result != 0)
+            length = i+1;
 
-        if (length < i)
-            break;
+        rop->v[i] = result;
     }
 
     if (length < op1->length || length < op2->length)
