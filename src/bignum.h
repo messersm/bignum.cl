@@ -42,6 +42,9 @@
 #define BIGNUM_ELEM_TYPE unsigned long
 #endif
 
+#define BIGNUM_ELEM_SIZE sizeof(BIGNUM_ELEM_TYPE)
+#define BIGNUM_ELEM_MAX ((BIGNUM_ELEM_TYPE) 0 - 1)
+
 /** @brief The type of the elements of a big number. */
 typedef BIGNUM_ELEM_TYPE bignum_elem_t;
 
