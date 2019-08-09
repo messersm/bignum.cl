@@ -94,16 +94,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbignum__t.html">bignum_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of a big number.  <a href="structbignum__t.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbignum.html">bignum</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of a big number.  <a href="structbignum.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aae679f6820f99b2e064916c3594c582a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#aae679f6820f99b2e064916c3594c582a">BIGNUM_TYPE</a>&#160;&#160;&#160;unsigned long</td></tr>
-<tr class="memdesc:aae679f6820f99b2e064916c3594c582a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the datatype used by bignum_elem_t.  <a href="#aae679f6820f99b2e064916c3594c582a">More...</a><br /></td></tr>
-<tr class="separator:aae679f6820f99b2e064916c3594c582a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0dc33688c900c97fa94c7a795554b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#adc0dc33688c900c97fa94c7a795554b1">BIGNUM_512</a>&#160;&#160;&#160;(64 / sizeof(<a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a>))</td></tr>
+<tr class="memitem:a0de324bbd28cbc60a55451dbae085a98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a0de324bbd28cbc60a55451dbae085a98">BIGNUM_ELEM_TYPE</a>&#160;&#160;&#160;unsigned long</td></tr>
+<tr class="memdesc:a0de324bbd28cbc60a55451dbae085a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the datatype used by bignum_elem_t.  <a href="#a0de324bbd28cbc60a55451dbae085a98">More...</a><br /></td></tr>
+<tr class="separator:a0de324bbd28cbc60a55451dbae085a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0dc33688c900c97fa94c7a795554b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#adc0dc33688c900c97fa94c7a795554b1">BIGNUM_512</a>&#160;&#160;&#160;(64 / sizeof(<a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a>))</td></tr>
 <tr class="memdesc:adc0dc33688c900c97fa94c7a795554b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">array size required for 512 bit numbers  <a href="#adc0dc33688c900c97fa94c7a795554b1">More...</a><br /></td></tr>
 <tr class="separator:adc0dc33688c900c97fa94c7a795554b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff115c908a413aa2479d2883fedec1b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#acff115c908a413aa2479d2883fedec1b">BIGNUM_1024</a>&#160;&#160;&#160;(<a class="el" href="bignum_8h.html#adc0dc33688c900c97fa94c7a795554b1">BIGNUM_512</a>*2)</td></tr>
@@ -118,29 +118,32 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ac19e9b7c8236cb1d9e8b4bf16d0ce513"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bignum_8h.html#aae679f6820f99b2e064916c3594c582a">BIGNUM_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a></td></tr>
-<tr class="memdesc:ac19e9b7c8236cb1d9e8b4bf16d0ce513"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the elements of a big number.  <a href="#ac19e9b7c8236cb1d9e8b4bf16d0ce513">More...</a><br /></td></tr>
-<tr class="separator:ac19e9b7c8236cb1d9e8b4bf16d0ce513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a2940600ccf96356e2a21b453d3bd92"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bignum_8h.html#a0de324bbd28cbc60a55451dbae085a98">BIGNUM_ELEM_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a></td></tr>
+<tr class="memdesc:a8a2940600ccf96356e2a21b453d3bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the elements of a big number.  <a href="#a8a2940600ccf96356e2a21b453d3bd92">More...</a><br /></td></tr>
+<tr class="separator:a8a2940600ccf96356e2a21b453d3bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13ef0ccf0abd8ee44826b6930b62b912"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structbignum.html">bignum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a></td></tr>
+<tr class="memdesc:a13ef0ccf0abd8ee44826b6930b62b912"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of a big number.  <a href="#a13ef0ccf0abd8ee44826b6930b62b912">More...</a><br /></td></tr>
+<tr class="separator:a13ef0ccf0abd8ee44826b6930b62b912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a80f59ecb7ebfd0a18692a21805f7caa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a80f59ecb7ebfd0a18692a21805f7caa2">bignum_assoc</a> (<a class="el" href="structbignum__t.html">bignum_t</a> *num, <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a> *arr, const size_t num_elements)</td></tr>
+<tr class="memitem:a80f59ecb7ebfd0a18692a21805f7caa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a80f59ecb7ebfd0a18692a21805f7caa2">bignum_assoc</a> (<a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *num, <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a> *arr, const size_t num_elements)</td></tr>
 <tr class="memdesc:a80f59ecb7ebfd0a18692a21805f7caa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate num_elements in arr with num.  <a href="#a80f59ecb7ebfd0a18692a21805f7caa2">More...</a><br /></td></tr>
 <tr class="separator:a80f59ecb7ebfd0a18692a21805f7caa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18c6d897cc2114df5d05fd6d6e5c3c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ab18c6d897cc2114df5d05fd6d6e5c3c7">bignum_sync</a> (<a class="el" href="structbignum__t.html">bignum_t</a> *num)</td></tr>
+<tr class="memitem:ab18c6d897cc2114df5d05fd6d6e5c3c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ab18c6d897cc2114df5d05fd6d6e5c3c7">bignum_sync</a> (<a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *num)</td></tr>
 <tr class="memdesc:ab18c6d897cc2114df5d05fd6d6e5c3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize bignum metadata with the underlying memory.  <a href="#ab18c6d897cc2114df5d05fd6d6e5c3c7">More...</a><br /></td></tr>
 <tr class="separator:ab18c6d897cc2114df5d05fd6d6e5c3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b1132294306db3daf600b2a88b341b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a3b1132294306db3daf600b2a88b341b3">bignum_zero</a> (<a class="el" href="structbignum__t.html">bignum_t</a> *num)</td></tr>
+<tr class="memitem:a3b1132294306db3daf600b2a88b341b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a3b1132294306db3daf600b2a88b341b3">bignum_zero</a> (<a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *num)</td></tr>
 <tr class="memdesc:a3b1132294306db3daf600b2a88b341b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero out all memory associated with num.  <a href="#a3b1132294306db3daf600b2a88b341b3">More...</a><br /></td></tr>
 <tr class="separator:a3b1132294306db3daf600b2a88b341b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8664b4358b43e4fed6692dd26f47f13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ac8664b4358b43e4fed6692dd26f47f13">bignum_set</a> (<a class="el" href="structbignum__t.html">bignum_t</a> *rop, const <a class="el" href="structbignum__t.html">bignum_t</a> *op)</td></tr>
+<tr class="memitem:ac8664b4358b43e4fed6692dd26f47f13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ac8664b4358b43e4fed6692dd26f47f13">bignum_set</a> (<a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *rop, const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *op)</td></tr>
 <tr class="separator:ac8664b4358b43e4fed6692dd26f47f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e04b2f22d264e11f8fe35805416929"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ad9e04b2f22d264e11f8fe35805416929">bignum_set_ui</a> (<a class="el" href="structbignum__t.html">bignum_t</a> *rop, const <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a> op)</td></tr>
+<tr class="memitem:ad9e04b2f22d264e11f8fe35805416929"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#ad9e04b2f22d264e11f8fe35805416929">bignum_set_ui</a> (<a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *rop, const <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a> op)</td></tr>
 <tr class="memdesc:ad9e04b2f22d264e11f8fe35805416929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set rop to the value of op.  <a href="#ad9e04b2f22d264e11f8fe35805416929">More...</a><br /></td></tr>
 <tr class="separator:ad9e04b2f22d264e11f8fe35805416929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65b1d0f318d95c53cd9c4ca8a799051"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#aa65b1d0f318d95c53cd9c4ca8a799051">bignum_cmp</a> (const <a class="el" href="structbignum__t.html">bignum_t</a> *op1, const <a class="el" href="structbignum__t.html">bignum_t</a> *op2)</td></tr>
+<tr class="memitem:aa65b1d0f318d95c53cd9c4ca8a799051"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#aa65b1d0f318d95c53cd9c4ca8a799051">bignum_cmp</a> (const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *op1, const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *op2)</td></tr>
 <tr class="separator:aa65b1d0f318d95c53cd9c4ca8a799051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a505aa030e32b81708fa8cceb01ecd600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a505aa030e32b81708fa8cceb01ecd600">bignum_cmp_ui</a> (const <a class="el" href="structbignum__t.html">bignum_t</a> *op1, const <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a> op2)</td></tr>
+<tr class="memitem:a505aa030e32b81708fa8cceb01ecd600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bignum_8h.html#a505aa030e32b81708fa8cceb01ecd600">bignum_cmp_ui</a> (const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *op1, const <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a> op2)</td></tr>
 <tr class="separator:a505aa030e32b81708fa8cceb01ecd600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -211,7 +214,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BIGNUM_512&#160;&#160;&#160;(64 / sizeof(<a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a>))</td>
+          <td class="memname">#define BIGNUM_512&#160;&#160;&#160;(64 / sizeof(<a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -222,36 +225,36 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aae679f6820f99b2e064916c3594c582a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae679f6820f99b2e064916c3594c582a">&#9670;&nbsp;</a></span>BIGNUM_TYPE</h2>
+<a id="a0de324bbd28cbc60a55451dbae085a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de324bbd28cbc60a55451dbae085a98">&#9670;&nbsp;</a></span>BIGNUM_ELEM_TYPE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BIGNUM_TYPE&#160;&#160;&#160;unsigned long</td>
+          <td class="memname">#define BIGNUM_ELEM_TYPE&#160;&#160;&#160;unsigned long</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Defines the datatype used by bignum_elem_t. </p>
 <p>You can change the default value by defining BIGNUM_TYPE yourself. The makros BIGNUM_512, etc. will be working regardless of the underlying bignum_elem_t datatype:</p>
-<p>With 32bit unsigned ints this code will set BIGNUM_512 to 16. </p><div class="fragment"><div class="line"><span class="preprocessor">#define BIGNUM_TYPE unsigned int</span></div><div class="line"><span class="preprocessor">#include &quot;bignum.h&quot;</span></div></div><!-- fragment --><p>With 8 bit unsigned chars this code will set BIGNUM_512 to 64. </p><div class="fragment"><div class="line"><span class="preprocessor">#define BIGNUM_TYPE unsigned char</span></div><div class="line"><span class="preprocessor">#include &quot;bignum.h&quot;</span></div></div><!-- fragment --><p>In both cases the maximum value represented by a <a class="el" href="structbignum__t.html" title="The type of a big number. ">bignum_t</a> used with BIGNUM_512 will be 2^512 - 1.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Setting BIGNUM_TYPE to a signed datatype will result in undefined behavoir. </dd></dl>
+<p>With 32bit unsigned ints this code will set BIGNUM_512 to 16. </p><div class="fragment"><div class="line"><span class="preprocessor">#define BIGNUM_ELEM_TYPE unsigned int</span></div><div class="line"><span class="preprocessor">#include &quot;bignum.h&quot;</span></div></div><!-- fragment --><p>With 8 bit unsigned chars this code will set BIGNUM_512 to 64. </p><div class="fragment"><div class="line"><span class="preprocessor">#define BIGNUM_ELEM_TYPE unsigned char</span></div><div class="line"><span class="preprocessor">#include &quot;bignum.h&quot;</span></div></div><!-- fragment --><p>In both cases the maximum value represented by a bignum_t used with BIGNUM_512 will be 2^512 - 1.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Setting BIGNUM_ELEM_TYPE to a signed datatype will result in undefined behavoir. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bignum_8h_source.html#l00042">42</a> of file <a class="el" href="bignum_8h_source.html">bignum.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="ac19e9b7c8236cb1d9e8b4bf16d0ce513"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac19e9b7c8236cb1d9e8b4bf16d0ce513">&#9670;&nbsp;</a></span>bignum_elem_t</h2>
+<a id="a8a2940600ccf96356e2a21b453d3bd92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a2940600ccf96356e2a21b453d3bd92">&#9670;&nbsp;</a></span>bignum_elem_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="bignum_8h.html#aae679f6820f99b2e064916c3594c582a">BIGNUM_TYPE</a> <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a></td>
+          <td class="memname">typedef <a class="el" href="bignum_8h.html#a0de324bbd28cbc60a55451dbae085a98">BIGNUM_ELEM_TYPE</a> <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -259,6 +262,23 @@ Functions</h2></td></tr>
 <p>The type of the elements of a big number. </p>
 
 <p class="definition">Definition at line <a class="el" href="bignum_8h_source.html#l00046">46</a> of file <a class="el" href="bignum_8h_source.html">bignum.h</a>.</p>
+
+</div>
+</div>
+<a id="a13ef0ccf0abd8ee44826b6930b62b912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ef0ccf0abd8ee44826b6930b62b912">&#9670;&nbsp;</a></span>bignum_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structbignum.html">bignum</a>  <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of a big number. </p>
+<p>More description  None of the members of bignum_t should be changed by the user. Doing so can result in undefined behavoir and segmentation faults. </p>
 
 </div>
 </div>
@@ -272,13 +292,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void bignum_assoc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>num</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a> *&#160;</td>
           <td class="paramname"><em>arr</em>, </td>
         </tr>
         <tr>
@@ -297,7 +317,7 @@ Functions</h2></td></tr>
 
 <p>Associate num_elements in arr with num. </p>
 <p>After calling <a class="el" href="bignum_8h.html#a80f59ecb7ebfd0a18692a21805f7caa2" title="Associate num_elements in arr with num. ">bignum_assoc()</a> the elements arr[0] to arr[num_elements-1] will be treated as a big number, which can be accessed through num.</p>
-<p>This code will create an array big enough to hold a 1024 bit number and associate the variable x with it: </p><div class="fragment"><div class="line"><a class="code" href="structbignum__t.html">bignum_t</a> x;</div><div class="line"><a class="code" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a> x_elements[<a class="code" href="bignum_8h.html#acff115c908a413aa2479d2883fedec1b">BIGNUM_1024</a>];</div><div class="line"><a class="code" href="bignum_8c.html#a80f59ecb7ebfd0a18692a21805f7caa2">bignum_assoc</a>(&amp;x, x_elements, <a class="code" href="bignum_8h.html#acff115c908a413aa2479d2883fedec1b">BIGNUM_1024</a>);</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<p>This code will create an array big enough to hold a 1024 bit number and associate the variable x with it: </p><div class="fragment"><div class="line"><a class="code" href="structbignum.html">bignum_t</a> x;</div><div class="line"><a class="code" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a> x_elements[<a class="code" href="bignum_8h.html#acff115c908a413aa2479d2883fedec1b">BIGNUM_1024</a>];</div><div class="line"><a class="code" href="bignum_8c.html#a80f59ecb7ebfd0a18692a21805f7caa2">bignum_assoc</a>(&amp;x, x_elements, <a class="code" href="bignum_8h.html#acff115c908a413aa2479d2883fedec1b">BIGNUM_1024</a>);</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">num</td><td>The number with which the elements in arr will be associated with. </td></tr>
     <tr><td class="paramname">arr</td><td>The array holding the actual elements. </td></tr>
@@ -319,13 +339,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int bignum_cmp </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>op1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>op2</em>&#160;</td>
         </tr>
         <tr>
@@ -335,7 +355,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compare two numbers of type <a class="el" href="structbignum__t.html" title="The type of a big number. ">bignum_t</a></p>
+<p>Compare two numbers of type bignum_t</p>
 <p>-1 if op1 &lt; op2, 1 if op1 &gt; op2 and 0 if both are equal. </p>
 
 <p class="definition">Definition at line <a class="el" href="bignum_8c_source.html#l00069">69</a> of file <a class="el" href="bignum_8c_source.html">bignum.c</a>.</p>
@@ -351,13 +371,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int bignum_cmp_ui </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>op1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a>&#160;</td>
           <td class="paramname"><em>op2</em>&#160;</td>
         </tr>
         <tr>
@@ -367,7 +387,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compare a <a class="el" href="structbignum__t.html" title="The type of a big number. ">bignum_t</a> with a bignum_elem_t.</p>
+<p>Compare a bignum_t with a bignum_elem_t.</p>
 <p>-1 if op1 &lt; op2, 1 if op1 &gt; op2 and 0 if both are equal. </p>
 
 <p class="definition">Definition at line <a class="el" href="bignum_8c_source.html#l00086">86</a> of file <a class="el" href="bignum_8c_source.html">bignum.c</a>.</p>
@@ -383,13 +403,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int bignum_set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>rop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>op</em>&#160;</td>
         </tr>
         <tr>
@@ -413,13 +433,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int bignum_set_ui </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>rop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="bignum_8h.html#ac19e9b7c8236cb1d9e8b4bf16d0ce513">bignum_elem_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="bignum_8h.html#a8a2940600ccf96356e2a21b453d3bd92">bignum_elem_t</a>&#160;</td>
           <td class="paramname"><em>op</em>&#160;</td>
         </tr>
         <tr>
@@ -445,7 +465,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void bignum_sync </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>num</em></td><td>)</td>
           <td></td>
         </tr>
@@ -467,7 +487,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void bignum_zero </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbignum__t.html">bignum_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="bignum_8h.html#a13ef0ccf0abd8ee44826b6930b62b912">bignum_t</a> *&#160;</td>
           <td class="paramname"><em>num</em></td><td>)</td>
           <td></td>
         </tr>

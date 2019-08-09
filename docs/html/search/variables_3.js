@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['v',['v',['../structbignum__t.html#a1b6bf900c7f36fd981ba7de0adc8a771',1,'bignum_t']]]
+  ['v',['v',['../structbignum.html#a60955e5f7046ec12c4c292510ad18146',1,'bignum']]]
 ];

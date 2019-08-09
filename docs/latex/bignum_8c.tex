@@ -11,19 +11,19 @@ Include dependency graph for bignum.\+c\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{bignum_8c_ab18c6d897cc2114df5d05fd6d6e5c3c7}{bignum\+\_\+sync} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num)
+void \hyperlink{bignum_8c_ab18c6d897cc2114df5d05fd6d6e5c3c7}{bignum\+\_\+sync} (\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$num)
 \begin{DoxyCompactList}\small\item\em Synchronize bignum metadata with the underlying memory. \end{DoxyCompactList}\item 
-void \hyperlink{bignum_8c_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\+\_\+assoc} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num, \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} $\ast$arr, const size\+\_\+t num\+\_\+elements)
+void \hyperlink{bignum_8c_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\+\_\+assoc} (\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$num, \hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t} $\ast$arr, const size\+\_\+t num\+\_\+elements)
 \begin{DoxyCompactList}\small\item\em Associate num\+\_\+elements in arr with num. \end{DoxyCompactList}\item 
-void \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num)
+void \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero} (\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$num)
 \begin{DoxyCompactList}\small\item\em Zero out all memory associated with num. \end{DoxyCompactList}\item 
-int \hyperlink{bignum_8c_ac8664b4358b43e4fed6692dd26f47f13}{bignum\+\_\+set} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$rop, const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op)
+int \hyperlink{bignum_8c_ac8664b4358b43e4fed6692dd26f47f13}{bignum\+\_\+set} (\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$rop, const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$op)
 \item 
-int \hyperlink{bignum_8c_ad9e04b2f22d264e11f8fe35805416929}{bignum\+\_\+set\+\_\+ui} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$rop, const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} op)
+int \hyperlink{bignum_8c_ad9e04b2f22d264e11f8fe35805416929}{bignum\+\_\+set\+\_\+ui} (\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$rop, const \hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t} op)
 \begin{DoxyCompactList}\small\item\em Set rop to the value of op. \end{DoxyCompactList}\item 
-int \hyperlink{bignum_8c_aa65b1d0f318d95c53cd9c4ca8a799051}{bignum\+\_\+cmp} (const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op1, const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op2)
+int \hyperlink{bignum_8c_aa65b1d0f318d95c53cd9c4ca8a799051}{bignum\+\_\+cmp} (const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$op1, const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$op2)
 \item 
-int \hyperlink{bignum_8c_a505aa030e32b81708fa8cceb01ecd600}{bignum\+\_\+cmp\+\_\+ui} (const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op1, const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} op2)
+int \hyperlink{bignum_8c_a505aa030e32b81708fa8cceb01ecd600}{bignum\+\_\+cmp\+\_\+ui} (const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$op1, const \hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t} op2)
 \end{DoxyCompactItemize}
 
 
@@ -32,7 +32,7 @@ int \hyperlink{bignum_8c_a505aa030e32b81708fa8cceb01ecd600}{bignum\+\_\+cmp\+\_\
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+assoc@{bignum\+\_\+assoc}}
 \index{bignum\+\_\+assoc@{bignum\+\_\+assoc}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+assoc()}{bignum\_assoc()}}
-{\footnotesize\ttfamily void bignum\+\_\+assoc (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num,  }\item[{\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} $\ast$}]{arr,  }\item[{const size\+\_\+t}]{num\+\_\+elements }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void bignum\+\_\+assoc (\begin{DoxyParamCaption}\item[{\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{num,  }\item[{\hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t} $\ast$}]{arr,  }\item[{const size\+\_\+t}]{num\+\_\+elements }\end{DoxyParamCaption})}
 
 
 
@@ -42,8 +42,8 @@ After calling \hyperlink{bignum_8h_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\+\_
 
 This code will create an array big enough to hold a 1024 bit number and associate the variable x with it\+: 
 \begin{DoxyCode}
-\hyperlink{structbignum__t}{bignum\_t} x;
-\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\_elem\_t} x\_elements[\hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{BIGNUM\_1024}];
+\hyperlink{structbignum}{bignum\_t} x;
+\hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\_elem\_t} x\_elements[\hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{BIGNUM\_1024}];
 \hyperlink{bignum_8c_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\_assoc}(&x, x\_elements, \hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{BIGNUM\_1024});
 \end{DoxyCode}
 
@@ -65,9 +65,9 @@ Definition at line 17 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+cmp@{bignum\+\_\+cmp}}
 \index{bignum\+\_\+cmp@{bignum\+\_\+cmp}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+cmp()}{bignum\_cmp()}}
-{\footnotesize\ttfamily int bignum\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int bignum\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{op2 }\end{DoxyParamCaption})}
 
-Compare two numbers of type \hyperlink{structbignum__t}{bignum\+\_\+t}
+Compare two numbers of type bignum\+\_\+t
 
 -\/1 if op1 $<$ op2, 1 if op1 $>$ op2 and 0 if both are equal. 
 
@@ -77,9 +77,9 @@ Definition at line 69 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+cmp\+\_\+ui@{bignum\+\_\+cmp\+\_\+ui}}
 \index{bignum\+\_\+cmp\+\_\+ui@{bignum\+\_\+cmp\+\_\+ui}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+cmp\+\_\+ui()}{bignum\_cmp\_ui()}}
-{\footnotesize\ttfamily int bignum\+\_\+cmp\+\_\+ui (\begin{DoxyParamCaption}\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}}]{op2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int bignum\+\_\+cmp\+\_\+ui (\begin{DoxyParamCaption}\item[{const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t}}]{op2 }\end{DoxyParamCaption})}
 
-Compare a \hyperlink{structbignum__t}{bignum\+\_\+t} with a bignum\+\_\+elem\+\_\+t.
+Compare a bignum\+\_\+t with a bignum\+\_\+elem\+\_\+t.
 
 -\/1 if op1 $<$ op2, 1 if op1 $>$ op2 and 0 if both are equal. 
 
@@ -89,7 +89,7 @@ Definition at line 86 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+set@{bignum\+\_\+set}}
 \index{bignum\+\_\+set@{bignum\+\_\+set}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+set()}{bignum\_set()}}
-{\footnotesize\ttfamily int bignum\+\_\+set (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int bignum\+\_\+set (\begin{DoxyParamCaption}\item[{\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{op }\end{DoxyParamCaption})}
 
 
 
@@ -99,7 +99,7 @@ Definition at line 36 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+set\+\_\+ui@{bignum\+\_\+set\+\_\+ui}}
 \index{bignum\+\_\+set\+\_\+ui@{bignum\+\_\+set\+\_\+ui}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+set\+\_\+ui()}{bignum\_set\_ui()}}
-{\footnotesize\ttfamily int bignum\+\_\+set\+\_\+ui (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}}]{op }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int bignum\+\_\+set\+\_\+ui (\begin{DoxyParamCaption}\item[{\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{bignum_8h_a8a2940600ccf96356e2a21b453d3bd92}{bignum\+\_\+elem\+\_\+t}}]{op }\end{DoxyParamCaption})}
 
 
 
@@ -113,7 +113,7 @@ Definition at line 48 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+sync@{bignum\+\_\+sync}}
 \index{bignum\+\_\+sync@{bignum\+\_\+sync}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+sync()}{bignum\_sync()}}
-{\footnotesize\ttfamily void bignum\+\_\+sync (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void bignum\+\_\+sync (\begin{DoxyParamCaption}\item[{\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
 
 
 
@@ -127,7 +127,7 @@ Definition at line 9 of file bignum.\+c.
 \index{bignum.\+c@{bignum.\+c}!bignum\+\_\+zero@{bignum\+\_\+zero}}
 \index{bignum\+\_\+zero@{bignum\+\_\+zero}!bignum.\+c@{bignum.\+c}}
 \subsubsection{\texorpdfstring{bignum\+\_\+zero()}{bignum\_zero()}}
-{\footnotesize\ttfamily void bignum\+\_\+zero (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void bignum\+\_\+zero (\begin{DoxyParamCaption}\item[{\hyperlink{bignum_8h_a13ef0ccf0abd8ee44826b6930b62b912}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
 
 
 

@@ -8,8 +8,7 @@ Specification of \hyperlink{bignum_8h}{bignum.\+h}.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}bignum.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}test.\+c\char`\"{}}\newline
-Include dependency graph for test\+\_\+bignum.\+c\+:
-\nopagebreak
+Include dependency graph for test\+\_\+bignum.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,23 +19,23 @@ Include dependency graph for test\+\_\+bignum.\+c\+:
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{test__bignum_8c_a0294d67cb325c5bbf965caae1fd5b60e}{test\+\_\+assoc\+\_\+max\+\_\+length} ()
-\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with n elements of an array sets the max\+\_\+length metadata to n. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Associating a bignum\+\_\+t number with n elements of an array sets the max\+\_\+length metadata to n. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a3cb26d281b5fd65f719e2868ae098c96}{test\+\_\+assoc\+\_\+length} ()
-\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with an array with exact n nonzero lower elements sets the length metadata to n. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Associating a bignum\+\_\+t number with an array with exact n nonzero lower elements sets the length metadata to n. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a098327c2f0d8b8471d0a3a1439684419}{test\+\_\+assoc\+\_\+zero\+\_\+null} ()
-\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of N\+U\+LL, sets the length and max\+\_\+length metadata to 0 and does not cause any errors. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Associating a bignum\+\_\+t number with 0 elements of N\+U\+LL, sets the length and max\+\_\+length metadata to 0 and does not cause any errors. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_ace02da2369ccb38d5aa6103305b7c987}{test\+\_\+assoc\+\_\+zero} ()
-\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of an array sets the length and max\+\_\+length metadata to 0 and does not cause any errors. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Associating a bignum\+\_\+t number with 0 elements of an array sets the length and max\+\_\+length metadata to 0 and does not cause any errors. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a8d6dfd8cca8c52cc57a0f21d7342b8b9}{test\+\_\+sync\+\_\+length} ()
-\begin{DoxyCompactList}\small\item\em Calling bignum\+\_\+sync sets the correct length on a \hyperlink{structbignum__t}{bignum\+\_\+t}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calling bignum\+\_\+sync sets the correct length on a bignum\+\_\+t. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a3c5186feb294d19dcb03ea02123854d1}{test\+\_\+zero\+\_\+data} ()
 \begin{DoxyCompactList}\small\item\em Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will zero out all associated data and nothing more. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a905b4a3ad625c43e956042f64e2f5b10}{test\+\_\+zero\+\_\+data\+\_\+wrong\+\_\+length} ()
-\begin{DoxyCompactList}\small\item\em Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will zero out all associated data and nothing more, even if the length member of the \hyperlink{structbignum__t}{bignum\+\_\+t} doesn\textquotesingle{}t match with the associated data. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will zero out all associated data and nothing more, even if the length member of the bignum\+\_\+t doesn\textquotesingle{}t match with the associated data. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_ae4202f9280c805042edd0e06d8474220}{test\+\_\+zero\+\_\+length} ()
-\begin{DoxyCompactList}\small\item\em Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will set the length of a \hyperlink{structbignum__t}{bignum\+\_\+t} to zero. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will set the length of a bignum\+\_\+t to zero. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_a248cf523b5beacbdb2905169425d8aac}{test\+\_\+cmp\+\_\+equal\+\_\+length\+\_\+and\+\_\+data} ()
-\begin{DoxyCompactList}\small\item\em Two \hyperlink{structbignum__t}{bignum\+\_\+t} numbers associated with identical data and of equal length are equal. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Two bignum\+\_\+t numbers associated with identical data and of equal length are equal. \end{DoxyCompactList}\item 
 int \hyperlink{test__bignum_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 
@@ -65,7 +64,7 @@ Definition at line 136 of file test\+\_\+bignum.\+c.
 
 
 
-Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with an array with exact n nonzero lower elements sets the length metadata to n. 
+Associating a bignum\+\_\+t number with an array with exact n nonzero lower elements sets the length metadata to n. 
 
 
 
@@ -79,7 +78,7 @@ Definition at line 29 of file test\+\_\+bignum.\+c.
 
 
 
-Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with n elements of an array sets the max\+\_\+length metadata to n. 
+Associating a bignum\+\_\+t number with n elements of an array sets the max\+\_\+length metadata to n. 
 
 
 
@@ -93,7 +92,7 @@ Definition at line 16 of file test\+\_\+bignum.\+c.
 
 
 
-Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of an array sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
+Associating a bignum\+\_\+t number with 0 elements of an array sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
 
 
 
@@ -107,7 +106,7 @@ Definition at line 54 of file test\+\_\+bignum.\+c.
 
 
 
-Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of N\+U\+LL, sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
+Associating a bignum\+\_\+t number with 0 elements of N\+U\+LL, sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
 
 
 
@@ -121,7 +120,7 @@ Definition at line 43 of file test\+\_\+bignum.\+c.
 
 
 
-Two \hyperlink{structbignum__t}{bignum\+\_\+t} numbers associated with identical data and of equal length are equal. 
+Two bignum\+\_\+t numbers associated with identical data and of equal length are equal. 
 
 
 
@@ -135,7 +134,7 @@ Definition at line 120 of file test\+\_\+bignum.\+c.
 
 
 
-Calling bignum\+\_\+sync sets the correct length on a \hyperlink{structbignum__t}{bignum\+\_\+t}. 
+Calling bignum\+\_\+sync sets the correct length on a bignum\+\_\+t. 
 
 
 
@@ -163,7 +162,7 @@ Definition at line 83 of file test\+\_\+bignum.\+c.
 
 
 
-Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will zero out all associated data and nothing more, even if the length member of the \hyperlink{structbignum__t}{bignum\+\_\+t} doesn\textquotesingle{}t match with the associated data. 
+Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will zero out all associated data and nothing more, even if the length member of the bignum\+\_\+t doesn\textquotesingle{}t match with the associated data. 
 
 
 
@@ -177,7 +176,7 @@ Definition at line 96 of file test\+\_\+bignum.\+c.
 
 
 
-Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will set the length of a \hyperlink{structbignum__t}{bignum\+\_\+t} to zero. 
+Calling \hyperlink{bignum_8c_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero()} will set the length of a bignum\+\_\+t to zero. 
 
 
 
