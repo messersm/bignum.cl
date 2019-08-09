@@ -1,0 +1,293 @@
+\hypertarget{bignum_8h}{}\section{src/bignum.h File Reference}
+\label{bignum_8h}\index{src/bignum.\+h@{src/bignum.\+h}}
+
+
+Declares basic types and core functions of the bignum.\+cl library.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for bignum.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{bignum_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{bignum_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbignum__t}{bignum\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The type of a big number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bignum_8h_aae679f6820f99b2e064916c3594c582a}{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE}~unsigned long
+\begin{DoxyCompactList}\small\item\em Defines the datatype used by bignum\+\_\+elem\+\_\+t. \end{DoxyCompactList}\item 
+\#define \hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}~(64 / sizeof(\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}))
+\begin{DoxyCompactList}\small\item\em array size required for 512 bit numbers \end{DoxyCompactList}\item 
+\#define \hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{B\+I\+G\+N\+U\+M\+\_\+1024}~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$2)
+\begin{DoxyCompactList}\small\item\em array size required for 1024 bit numbers \end{DoxyCompactList}\item 
+\#define \hyperlink{bignum_8h_ae53df04bbf79c53f0f5bb23ae6a3f198}{B\+I\+G\+N\+U\+M\+\_\+2048}~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$4)
+\begin{DoxyCompactList}\small\item\em array size required for 2048 bit numbers \end{DoxyCompactList}\item 
+\#define \hyperlink{bignum_8h_a59d692e5e6488e51a82e6f8ec7183575}{B\+I\+G\+N\+U\+M\+\_\+4096}~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$8)
+\begin{DoxyCompactList}\small\item\em array size required for 4096 bit numbers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{bignum_8h_aae679f6820f99b2e064916c3594c582a}{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE} \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The type of the elements of a big number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{bignum_8h_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\+\_\+assoc} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num, \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} $\ast$arr, const size\+\_\+t num\+\_\+elements)
+\begin{DoxyCompactList}\small\item\em Associate num\+\_\+elements in arr with num. \end{DoxyCompactList}\item 
+void \hyperlink{bignum_8h_ab18c6d897cc2114df5d05fd6d6e5c3c7}{bignum\+\_\+sync} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num)
+\begin{DoxyCompactList}\small\item\em Synchronize bignum metadata with the underlying memory. \end{DoxyCompactList}\item 
+void \hyperlink{bignum_8h_a3b1132294306db3daf600b2a88b341b3}{bignum\+\_\+zero} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$num)
+\begin{DoxyCompactList}\small\item\em Zero out all memory associated with num. \end{DoxyCompactList}\item 
+int \hyperlink{bignum_8h_ac8664b4358b43e4fed6692dd26f47f13}{bignum\+\_\+set} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$rop, const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op)
+\item 
+int \hyperlink{bignum_8h_ad9e04b2f22d264e11f8fe35805416929}{bignum\+\_\+set\+\_\+ui} (\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$rop, const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} op)
+\begin{DoxyCompactList}\small\item\em Set rop to the value of op. \end{DoxyCompactList}\item 
+int \hyperlink{bignum_8h_aa65b1d0f318d95c53cd9c4ca8a799051}{bignum\+\_\+cmp} (const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op1, const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op2)
+\item 
+int \hyperlink{bignum_8h_a505aa030e32b81708fa8cceb01ecd600}{bignum\+\_\+cmp\+\_\+ui} (const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$op1, const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} op2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declares basic types and core functions of the bignum.\+cl library. 
+
+\subsection*{Memory association}
+
+A core principle of the bignum.\+cl library is memory association. 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{bignum_8h_acff115c908a413aa2479d2883fedec1b}\label{bignum_8h_acff115c908a413aa2479d2883fedec1b}} 
+\index{bignum.\+h@{bignum.\+h}!B\+I\+G\+N\+U\+M\+\_\+1024@{B\+I\+G\+N\+U\+M\+\_\+1024}}
+\index{B\+I\+G\+N\+U\+M\+\_\+1024@{B\+I\+G\+N\+U\+M\+\_\+1024}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+G\+N\+U\+M\+\_\+1024}{BIGNUM\_1024}}
+{\footnotesize\ttfamily \#define B\+I\+G\+N\+U\+M\+\_\+1024~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$2)}
+
+
+
+array size required for 1024 bit numbers 
+
+
+
+Definition at line 67 of file bignum.\+h.
+
+\mbox{\Hypertarget{bignum_8h_ae53df04bbf79c53f0f5bb23ae6a3f198}\label{bignum_8h_ae53df04bbf79c53f0f5bb23ae6a3f198}} 
+\index{bignum.\+h@{bignum.\+h}!B\+I\+G\+N\+U\+M\+\_\+2048@{B\+I\+G\+N\+U\+M\+\_\+2048}}
+\index{B\+I\+G\+N\+U\+M\+\_\+2048@{B\+I\+G\+N\+U\+M\+\_\+2048}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+G\+N\+U\+M\+\_\+2048}{BIGNUM\_2048}}
+{\footnotesize\ttfamily \#define B\+I\+G\+N\+U\+M\+\_\+2048~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$4)}
+
+
+
+array size required for 2048 bit numbers 
+
+
+
+Definition at line 69 of file bignum.\+h.
+
+\mbox{\Hypertarget{bignum_8h_a59d692e5e6488e51a82e6f8ec7183575}\label{bignum_8h_a59d692e5e6488e51a82e6f8ec7183575}} 
+\index{bignum.\+h@{bignum.\+h}!B\+I\+G\+N\+U\+M\+\_\+4096@{B\+I\+G\+N\+U\+M\+\_\+4096}}
+\index{B\+I\+G\+N\+U\+M\+\_\+4096@{B\+I\+G\+N\+U\+M\+\_\+4096}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+G\+N\+U\+M\+\_\+4096}{BIGNUM\_4096}}
+{\footnotesize\ttfamily \#define B\+I\+G\+N\+U\+M\+\_\+4096~(\hyperlink{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}{B\+I\+G\+N\+U\+M\+\_\+512}$\ast$8)}
+
+
+
+array size required for 4096 bit numbers 
+
+
+
+Definition at line 71 of file bignum.\+h.
+
+\mbox{\Hypertarget{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}\label{bignum_8h_adc0dc33688c900c97fa94c7a795554b1}} 
+\index{bignum.\+h@{bignum.\+h}!B\+I\+G\+N\+U\+M\+\_\+512@{B\+I\+G\+N\+U\+M\+\_\+512}}
+\index{B\+I\+G\+N\+U\+M\+\_\+512@{B\+I\+G\+N\+U\+M\+\_\+512}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+G\+N\+U\+M\+\_\+512}{BIGNUM\_512}}
+{\footnotesize\ttfamily \#define B\+I\+G\+N\+U\+M\+\_\+512~(64 / sizeof(\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}))}
+
+
+
+array size required for 512 bit numbers 
+
+
+
+Definition at line 65 of file bignum.\+h.
+
+\mbox{\Hypertarget{bignum_8h_aae679f6820f99b2e064916c3594c582a}\label{bignum_8h_aae679f6820f99b2e064916c3594c582a}} 
+\index{bignum.\+h@{bignum.\+h}!B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE@{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE}}
+\index{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE@{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE}{BIGNUM\_TYPE}}
+{\footnotesize\ttfamily \#define B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE~unsigned long}
+
+
+
+Defines the datatype used by bignum\+\_\+elem\+\_\+t. 
+
+You can change the default value by defining B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE yourself. The makros B\+I\+G\+N\+U\+M\+\_\+512, etc. will be working regardless of the underlying bignum\+\_\+elem\+\_\+t datatype\+:
+
+With 32bit unsigned ints this code will set B\+I\+G\+N\+U\+M\+\_\+512 to 16. 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define BIGNUM\_TYPE unsigned int}
+\textcolor{preprocessor}{#include "bignum.h"}
+\end{DoxyCode}
+
+
+With 8 bit unsigned chars this code will set B\+I\+G\+N\+U\+M\+\_\+512 to 64. 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define BIGNUM\_TYPE unsigned char}
+\textcolor{preprocessor}{#include "bignum.h"}
+\end{DoxyCode}
+
+
+In both cases the maximum value represented by a \hyperlink{structbignum__t}{bignum\+\_\+t} used with B\+I\+G\+N\+U\+M\+\_\+512 will be 2$^\wedge$512 -\/ 1.
+
+\begin{DoxyWarning}{Warning}
+Setting B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE to a signed datatype will result in undefined behavoir. 
+\end{DoxyWarning}
+
+
+Definition at line 42 of file bignum.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}\label{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+elem\+\_\+t@{bignum\+\_\+elem\+\_\+t}}
+\index{bignum\+\_\+elem\+\_\+t@{bignum\+\_\+elem\+\_\+t}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+elem\+\_\+t}{bignum\_elem\_t}}
+{\footnotesize\ttfamily typedef \hyperlink{bignum_8h_aae679f6820f99b2e064916c3594c582a}{B\+I\+G\+N\+U\+M\+\_\+\+T\+Y\+PE} \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}}
+
+
+
+The type of the elements of a big number. 
+
+
+
+Definition at line 46 of file bignum.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bignum_8h_a80f59ecb7ebfd0a18692a21805f7caa2}\label{bignum_8h_a80f59ecb7ebfd0a18692a21805f7caa2}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+assoc@{bignum\+\_\+assoc}}
+\index{bignum\+\_\+assoc@{bignum\+\_\+assoc}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+assoc()}{bignum\_assoc()}}
+{\footnotesize\ttfamily void bignum\+\_\+assoc (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num,  }\item[{\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t} $\ast$}]{arr,  }\item[{const size\+\_\+t}]{num\+\_\+elements }\end{DoxyParamCaption})}
+
+
+
+Associate num\+\_\+elements in arr with num. 
+
+After calling \hyperlink{bignum_8h_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\+\_\+assoc()} the elements arr\mbox{[}0\mbox{]} to arr\mbox{[}num\+\_\+elements-\/1\mbox{]} will be treated as a big number, which can be accessed through num.
+
+This code will create an array big enough to hold a 1024 bit number and associate the variable x with it\+: 
+\begin{DoxyCode}
+\hyperlink{structbignum__t}{bignum\_t} x;
+\hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\_elem\_t} x\_elements[\hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{BIGNUM\_1024}];
+\hyperlink{bignum_8c_a80f59ecb7ebfd0a18692a21805f7caa2}{bignum\_assoc}(&x, x\_elements, \hyperlink{bignum_8h_acff115c908a413aa2479d2883fedec1b}{BIGNUM\_1024});
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The number with which the elements in arr will be associated with. \\
+\hline
+{\em arr} & The array holding the actual elements. \\
+\hline
+{\em num\+\_\+elements} & Number of elements from arr to associate with num. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_aa65b1d0f318d95c53cd9c4ca8a799051}\label{bignum_8h_aa65b1d0f318d95c53cd9c4ca8a799051}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+cmp@{bignum\+\_\+cmp}}
+\index{bignum\+\_\+cmp@{bignum\+\_\+cmp}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+cmp()}{bignum\_cmp()}}
+{\footnotesize\ttfamily int bignum\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op2 }\end{DoxyParamCaption})}
+
+Compare two numbers of type \hyperlink{structbignum__t}{bignum\+\_\+t}
+
+-\/1 if op1 $<$ op2, 1 if op1 $>$ op2 and 0 if both are equal. 
+
+Definition at line 69 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_a505aa030e32b81708fa8cceb01ecd600}\label{bignum_8h_a505aa030e32b81708fa8cceb01ecd600}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+cmp\+\_\+ui@{bignum\+\_\+cmp\+\_\+ui}}
+\index{bignum\+\_\+cmp\+\_\+ui@{bignum\+\_\+cmp\+\_\+ui}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+cmp\+\_\+ui()}{bignum\_cmp\_ui()}}
+{\footnotesize\ttfamily int bignum\+\_\+cmp\+\_\+ui (\begin{DoxyParamCaption}\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op1,  }\item[{const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}}]{op2 }\end{DoxyParamCaption})}
+
+Compare a \hyperlink{structbignum__t}{bignum\+\_\+t} with a bignum\+\_\+elem\+\_\+t.
+
+-\/1 if op1 $<$ op2, 1 if op1 $>$ op2 and 0 if both are equal. 
+
+Definition at line 86 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_ac8664b4358b43e4fed6692dd26f47f13}\label{bignum_8h_ac8664b4358b43e4fed6692dd26f47f13}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+set@{bignum\+\_\+set}}
+\index{bignum\+\_\+set@{bignum\+\_\+set}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+set()}{bignum\_set()}}
+{\footnotesize\ttfamily int bignum\+\_\+set (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{op }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_ad9e04b2f22d264e11f8fe35805416929}\label{bignum_8h_ad9e04b2f22d264e11f8fe35805416929}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+set\+\_\+ui@{bignum\+\_\+set\+\_\+ui}}
+\index{bignum\+\_\+set\+\_\+ui@{bignum\+\_\+set\+\_\+ui}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+set\+\_\+ui()}{bignum\_set\_ui()}}
+{\footnotesize\ttfamily int bignum\+\_\+set\+\_\+ui (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{rop,  }\item[{const \hyperlink{bignum_8h_ac19e9b7c8236cb1d9e8b4bf16d0ce513}{bignum\+\_\+elem\+\_\+t}}]{op }\end{DoxyParamCaption})}
+
+
+
+Set rop to the value of op. 
+
+
+
+Definition at line 48 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_ab18c6d897cc2114df5d05fd6d6e5c3c7}\label{bignum_8h_ab18c6d897cc2114df5d05fd6d6e5c3c7}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+sync@{bignum\+\_\+sync}}
+\index{bignum\+\_\+sync@{bignum\+\_\+sync}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+sync()}{bignum\_sync()}}
+{\footnotesize\ttfamily void bignum\+\_\+sync (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
+
+
+
+Synchronize bignum metadata with the underlying memory. 
+
+
+
+Definition at line 9 of file bignum.\+c.
+
+\mbox{\Hypertarget{bignum_8h_a3b1132294306db3daf600b2a88b341b3}\label{bignum_8h_a3b1132294306db3daf600b2a88b341b3}} 
+\index{bignum.\+h@{bignum.\+h}!bignum\+\_\+zero@{bignum\+\_\+zero}}
+\index{bignum\+\_\+zero@{bignum\+\_\+zero}!bignum.\+h@{bignum.\+h}}
+\subsubsection{\texorpdfstring{bignum\+\_\+zero()}{bignum\_zero()}}
+{\footnotesize\ttfamily void bignum\+\_\+zero (\begin{DoxyParamCaption}\item[{\hyperlink{structbignum__t}{bignum\+\_\+t} $\ast$}]{num }\end{DoxyParamCaption})}
+
+
+
+Zero out all memory associated with num. 
+
+
+
+Definition at line 24 of file bignum.\+c.
+

@@ -1,0 +1,113 @@
+\hypertarget{bignum__tests_8c}{}\section{tests/bignum\+\_\+tests.c File Reference}
+\label{bignum__tests_8c}\index{tests/bignum\+\_\+tests.\+c@{tests/bignum\+\_\+tests.\+c}}
+
+
+Specification of \hyperlink{bignum_8h}{bignum.\+h}.  
+
+
+{\ttfamily \#include \char`\"{}bignum.\+h\char`\"{}}\newline
+Include dependency graph for bignum\+\_\+tests.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{bignum__tests_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{bignum__tests_8c__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{bignum__tests_8c_a0294d67cb325c5bbf965caae1fd5b60e}{test\+\_\+assoc\+\_\+max\+\_\+length} ()
+\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with n elements of an array sets the max\+\_\+length metadata to n. \end{DoxyCompactList}\item 
+int \hyperlink{bignum__tests_8c_a3cb26d281b5fd65f719e2868ae098c96}{test\+\_\+assoc\+\_\+length} ()
+\begin{DoxyCompactList}\small\item\em Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with an array with exact n nonzero lower elements sets the length metadata to n. \end{DoxyCompactList}\item 
+int \hyperlink{bignum__tests_8c_a098327c2f0d8b8471d0a3a1439684419}{test\+\_\+assoc\+\_\+zero\+\_\+null} ()
+\item 
+int \hyperlink{bignum__tests_8c_ace02da2369ccb38d5aa6103305b7c987}{test\+\_\+assoc\+\_\+zero} ()
+\item 
+int \hyperlink{bignum__tests_8c_a8d6dfd8cca8c52cc57a0f21d7342b8b9}{test\+\_\+sync\+\_\+length} ()
+\item 
+int \hyperlink{bignum__tests_8c_a4ea4740550637ad392ef6128536bb825}{test\+\_\+cmp\+\_\+equal\+\_\+data} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Specification of \hyperlink{bignum_8h}{bignum.\+h}. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bignum__tests_8c_a3cb26d281b5fd65f719e2868ae098c96}\label{bignum__tests_8c_a3cb26d281b5fd65f719e2868ae098c96}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+assoc\+\_\+length@{test\+\_\+assoc\+\_\+length}}
+\index{test\+\_\+assoc\+\_\+length@{test\+\_\+assoc\+\_\+length}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+assoc\+\_\+length()}{test\_assoc\_length()}}
+{\footnotesize\ttfamily int test\+\_\+assoc\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with an array with exact n nonzero lower elements sets the length metadata to n. 
+
+
+
+Definition at line 27 of file bignum\+\_\+tests.\+c.
+
+\mbox{\Hypertarget{bignum__tests_8c_a0294d67cb325c5bbf965caae1fd5b60e}\label{bignum__tests_8c_a0294d67cb325c5bbf965caae1fd5b60e}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+assoc\+\_\+max\+\_\+length@{test\+\_\+assoc\+\_\+max\+\_\+length}}
+\index{test\+\_\+assoc\+\_\+max\+\_\+length@{test\+\_\+assoc\+\_\+max\+\_\+length}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+assoc\+\_\+max\+\_\+length()}{test\_assoc\_max\_length()}}
+{\footnotesize\ttfamily int test\+\_\+assoc\+\_\+max\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with n elements of an array sets the max\+\_\+length metadata to n. 
+
+
+
+Definition at line 14 of file bignum\+\_\+tests.\+c.
+
+\mbox{\Hypertarget{bignum__tests_8c_ace02da2369ccb38d5aa6103305b7c987}\label{bignum__tests_8c_ace02da2369ccb38d5aa6103305b7c987}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+assoc\+\_\+zero@{test\+\_\+assoc\+\_\+zero}}
+\index{test\+\_\+assoc\+\_\+zero@{test\+\_\+assoc\+\_\+zero}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+assoc\+\_\+zero()}{test\_assoc\_zero()}}
+{\footnotesize\ttfamily int test\+\_\+assoc\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of an array sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
+
+Definition at line 57 of file bignum\+\_\+tests.\+c.
+
+\mbox{\Hypertarget{bignum__tests_8c_a098327c2f0d8b8471d0a3a1439684419}\label{bignum__tests_8c_a098327c2f0d8b8471d0a3a1439684419}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+assoc\+\_\+zero\+\_\+null@{test\+\_\+assoc\+\_\+zero\+\_\+null}}
+\index{test\+\_\+assoc\+\_\+zero\+\_\+null@{test\+\_\+assoc\+\_\+zero\+\_\+null}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+assoc\+\_\+zero\+\_\+null()}{test\_assoc\_zero\_null()}}
+{\footnotesize\ttfamily int test\+\_\+assoc\+\_\+zero\+\_\+null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Associating a \hyperlink{structbignum__t}{bignum\+\_\+t} number with 0 elements of N\+U\+LL, sets the length and max\+\_\+length metadata to 0 and does not cause any errors. 
+
+Definition at line 41 of file bignum\+\_\+tests.\+c.
+
+\mbox{\Hypertarget{bignum__tests_8c_a4ea4740550637ad392ef6128536bb825}\label{bignum__tests_8c_a4ea4740550637ad392ef6128536bb825}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+cmp\+\_\+equal\+\_\+data@{test\+\_\+cmp\+\_\+equal\+\_\+data}}
+\index{test\+\_\+cmp\+\_\+equal\+\_\+data@{test\+\_\+cmp\+\_\+equal\+\_\+data}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+cmp\+\_\+equal\+\_\+data()}{test\_cmp\_equal\_data()}}
+{\footnotesize\ttfamily int test\+\_\+cmp\+\_\+equal\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Two \hyperlink{structbignum__t}{bignum\+\_\+t} numbers associated with identical data are equal. 
+
+Definition at line 90 of file bignum\+\_\+tests.\+c.
+
+\mbox{\Hypertarget{bignum__tests_8c_a8d6dfd8cca8c52cc57a0f21d7342b8b9}\label{bignum__tests_8c_a8d6dfd8cca8c52cc57a0f21d7342b8b9}} 
+\index{bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}!test\+\_\+sync\+\_\+length@{test\+\_\+sync\+\_\+length}}
+\index{test\+\_\+sync\+\_\+length@{test\+\_\+sync\+\_\+length}!bignum\+\_\+tests.\+c@{bignum\+\_\+tests.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+sync\+\_\+length()}{test\_sync\_length()}}
+{\footnotesize\ttfamily int test\+\_\+sync\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calling bignum\+\_\+sync sets the correct length on a \hyperlink{structbignum__t}{bignum\+\_\+t}. 
+
+Definition at line 75 of file bignum\+\_\+tests.\+c.
+
