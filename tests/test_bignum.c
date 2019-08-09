@@ -268,7 +268,7 @@ int add_data_overflow() {
     bignum_assoc(&x, data, 4);
 
     bignum_add(&x, &a, &b);
-    return data[0] == 4 && data[1] == 3 && data[2] == 1;
+    return data[0] == 4 && data[1] == 6 && data[2] == 0 && data[3] == 1;
 }
 
 /*
