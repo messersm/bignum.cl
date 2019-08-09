@@ -13,7 +13,7 @@
 #ifndef __BIGNUM_H
 #define __BIGNUM_H
 
-#ifndef BIGNUM_TYPE
+#ifndef BIGNUM_ELEM_TYPE
 /**
  * @brief Defines the datatype used by bignum_elem_t
  *
@@ -23,27 +23,27 @@
  *
  * With 32bit unsigned ints this code will set BIGNUM_512 to 16.
  * @code{.c}
- * #define BIGNUM_TYPE unsigned int
+ * #define BIGNUM_ELEM_TYPE unsigned int
  * #include "bignum.h"
  * @endcode
  *
  * With 8 bit unsigned chars this code will set BIGNUM_512 to 64.
  * @code{.c}
- * #define BIGNUM_TYPE unsigned char
+ * #define BIGNUM_ELEM_TYPE unsigned char
  * #include "bignum.h"
  * @endcode
  *
  * In both cases the maximum value represented by a bignum_t used
  * with BIGNUM_512 will be 2^512 - 1.
  *
- * @warning Setting BIGNUM_TYPE to a signed datatype will result in
+ * @warning Setting BIGNUM_ELEM_TYPE to a signed datatype will result in
  *          undefined behavoir.
  */
-#define BIGNUM_TYPE unsigned long
+#define BIGNUM_ELEM_TYPE unsigned long
 #endif
 
 /** @brief The type of the elements of a big number. */
-typedef BIGNUM_TYPE bignum_elem_t;
+typedef BIGNUM_ELEM_TYPE bignum_elem_t;
 
 /**
  * @brief The type of a big number.
@@ -52,7 +52,7 @@ typedef BIGNUM_TYPE bignum_elem_t;
  * @Warning None of the members of bignum_t should be changed by the user.
  *          Doing so can result in undefined behavoir and segmentation faults.
  */
-typedef struct {
+typedef struct bignum {
     /** The number of elements this bignum actually uses. */
     size_t length;
     /** The number of elements this bignum can hold. */
