@@ -145,6 +145,199 @@ int test_cmp_equal_length_and_data() {
     return bignum_cmp(&a, &b) == 0;
 }
 
+/*
+ * @brief Adding two big numbers without overflow or carry
+ *        will set the correct data in all relevant places.
+**/
+int add_data_no_carry() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 5, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return data[0] == 4 && data[1] == 6 && data[2] == 5;
+}
+
+
+/*
+ * @brief Adding two big numbers without overflow or carry
+ *        will set the correct length in the result.
+**/
+int add_length_no_carry() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 5, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return x.length == 3;
+}
+
+/*
+ * @brief Adding two big numbers without overflow or carry
+ *        will return 0.
+**/
+int add_return_no_carry() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 5, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    return bignum_add(&x, &a, &b) == 0;
+}
+
+/*
+ * @brief Adding two big numbers without overflow and with carry
+ *        will set the correct data in all relevant places.
+**/
+int add_data_carry_no_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, BIGNUM_ELEM_MAX, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return data[0] == 4 && data[1] == 3 && data[2] == 1;
+}
+
+/*
+ * @brief Adding two big numbers without overflow and with carry
+ *        will set the correct length in the result.
+**/
+int add_length_carry_no_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, BIGNUM_ELEM_MAX, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return x.length == 3;
+}
+
+/*
+ * @brief Adding two big numbers without overflow and with carry
+ *        will return 0.
+**/
+int add_return_carry_no_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, BIGNUM_ELEM_MAX, 0, 0};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 0};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return bignum_add(&x, &a, &b) == 0;
+}
+
+/*
+ * @brief Adding two big numbers with overflow and carry
+ *        will set the correct data in all relevant places.
+**/
+int add_data_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, BIGNUM_ELEM_MAX};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 2};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return data[0] == 4 && data[1] == 3 && data[2] == 1;
+}
+
+/*
+ * @brief Adding two big numbers with overflow
+ *        will set the correct length in the result.
+**/
+int add_length_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, BIGNUM_ELEM_MAX};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 1};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return x.length == 2;
+}
+
+/*
+ * @brief Adding two big numbers with overflow
+ *        will return 1.
+**/
+int add_return_overflow() {
+    bignum_t a, b, x;
+    bignum_elem_t a_elements[4] = {1, 2, 0, BIGNUM_ELEM_MAX};
+    bignum_elem_t b_elements[4] = {3, 4, 0, 2};
+    bignum_elem_t data[4];
+
+    bignum_assoc(&a, a_elements, 4);
+    bignum_assoc(&b, b_elements, 4);
+    bignum_assoc(&x, data, 4);
+
+    bignum_add(&x, &a, &b);
+    return bignum_add(&x, &a, &b) == 1;
+}
+
+/**
+ * @brief Adding
+**/
+int add_data_overflow_to_zero() {
+    bignum_t a, b, c;
+    bignum_elem_t a_elem[3] = {BIGNUM_ELEM_MAX, BIGNUM_ELEM_MAX, 0};
+    bignum_elem_t b_elem[3] = {1, 0, BIGNUM_ELEM_MAX};
+    bignum_elem_t c_elem[3];
+
+    bignum_assoc(&a, a_elem, 3);
+    bignum_assoc(&b, b_elem, 3);
+    bignum_assoc(&c, c_elem, 3);
+
+    bignum_add(&c, &a, &b);
+    return c_elem[0] == 0 && c_elem[1] == 0 && c_elem[2] == 0;
+}
+
+int add_length_overflow_to_zero() {
+    bignum_t a, b, c;
+    bignum_elem_t a_elem[3] = {BIGNUM_ELEM_MAX, BIGNUM_ELEM_MAX, 0};
+    bignum_elem_t b_elem[3] = {1, 0, BIGNUM_ELEM_MAX};
+    bignum_elem_t c_elem[3];
+
+    bignum_assoc(&a, a_elem, 3);
+    bignum_assoc(&b, b_elem, 3);
+    bignum_assoc(&c, c_elem, 3);
+
+    bignum_add(&c, &a, &b);
+    return c.length == 0;
+}
+
 int add_length_zero_zero() {
     bignum_t a, b, c;
     bignum_assoc(&a, NULL, 0);
@@ -173,7 +366,23 @@ int main() {
     run_test("zero() sets bignum_t.length to zero.", test_zero_length);
 
     run_test("cmp() returns 0 on numbers with equal length and data.", test_cmp_equal_length_and_data);
+
     run_test("add() correctly sets rop.length, for zero length ops.", add_length_zero_zero);
+
+    run_test("add() sets correct data, if no carry or overflow occurs.", add_data_no_carry);
+    run_test("add() sets correct length, if no carry or overflow occurs.", add_length_no_carry);
+    run_test("add() returns 0, if no carry or overflow occurs.", add_return_no_carry);
+
+    run_test("add() sets correct data, if carry and no overflow occurs.", add_data_carry_no_overflow);
+    run_test("add() sets correct length, if carry and no overflow occurs.", add_length_carry_no_overflow);
+    run_test("add() returns 0, if carry and no overflow occurs.", add_return_carry_no_overflow);
+
+    run_test("add() sets correct data, if an overflow occurs.", add_data_overflow);
+    run_test("add() sets correct length, if an overflow occurs.", add_length_overflow);
+    run_test("add() returns 1, if an overflow occurs.", add_return_overflow);
+
+    run_test("add() sets correct data when overflowing to zero.", add_data_overflow_to_zero);
+    run_test("add() sets correct length when overflowing to zero.", add_length_overflow_to_zero);
 
     return test_status; // included by test.c
 }
