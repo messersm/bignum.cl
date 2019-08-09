@@ -350,6 +350,63 @@ int add_length_zero_zero() {
     return c.length == 0;
 }
 
+int mul_no_carry() {
+    bignum_t a, b, c, x;
+    bignum_elem_t a_elem[4] = {1, 2, 3, 4};
+    bignum_elem_t b_elem[4] = {5, 6, 7, 8};
+    bignum_elem_t c_elem[8] = {
+        5,                      // 0
+        1*6 + 5*2,              // 1
+        1*7 + 2*6 + 5*3,        // 2
+        1*8 + 2*7 + 3*6 + 4*5,  // 3
+        2*8 + 3*7 + 4*6,        // 4
+        3*8 + 4*7,              // 5
+        4*8,                    // 6
+        0                       // 7
+    };
+    bignum_elem_t x_elem[8];
+
+    bignum_assoc(&a, a_elem, 4);
+    bignum_assoc(&b, b_elem, 4);
+    bignum_assoc(&c, c_elem, 8);
+    bignum_assoc(&x, x_elem, 8);
+
+    int ret = bignum_mul(&x, &a, &b);
+    return bignum_cmp(&x, &c) == 0 && ret == 0;
+}
+
+int mul_carry_no_overflow() {
+    bignum_t a, b, c, x;
+    bignum_elem_t a_elem[4] = {BIGNUM_ELEM_MAX, 0, 0, 0}; // only 1s
+    bignum_elem_t b_elem[4] = {8, 0, 0, 0}; // lshift by 3 bits.
+    bignum_elem_t c_elem[4] = {BIGNUM_ELEM_MAX - 7, 7, 0, 0};
+    bignum_elem_t x_elem[4];
+
+    bignum_assoc(&a, a_elem, 4);
+    bignum_assoc(&b, b_elem, 4);
+    bignum_assoc(&c, c_elem, 4);
+    bignum_assoc(&x, x_elem, 4);
+
+    int ret = bignum_mul(&x, &a, &b);
+    return bignum_cmp(&x, &c) == 0 && ret == 0;
+}
+
+int mul_carry_overflow() {
+    bignum_t a, b, c, x;
+    bignum_elem_t a_elem[4] = {0, 0, 0, BIGNUM_ELEM_MAX}; // only 1s
+    bignum_elem_t b_elem[4] = {8, 0, 0, 0}; // lshift by 3 bits.
+    bignum_elem_t c_elem[4] = {0, 0, 0, BIGNUM_ELEM_MAX - 7};
+    bignum_elem_t x_elem[4];
+
+    bignum_assoc(&a, a_elem, 4);
+    bignum_assoc(&b, b_elem, 4);
+    bignum_assoc(&c, c_elem, 4);
+    bignum_assoc(&x, x_elem, 4);
+
+    int ret = bignum_mul(&x, &a, &b);
+    return assert_equal_bignum(&c, &x) == 1 && ret == 1;
+}
+
 int main() {
     printf("Testing bignum.h specification...\n");
 
@@ -383,6 +440,10 @@ int main() {
 
     run_test("add() sets correct data when overflowing to zero.", add_data_overflow_to_zero);
     run_test("add() sets correct length when overflowing to zero.", add_length_overflow_to_zero);
+
+    run_test("mul() with no carry works and returns 0.", mul_no_carry);
+    run_test("mul() with carry works and returns 0, if no overflow occurs.", mul_carry_no_overflow);
+    run_test("mul() with carry works and returns 1, if an overflow occurs.", mul_carry_overflow);
 
     return test_status; // included by test.c
 }

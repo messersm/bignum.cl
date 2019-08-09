@@ -156,3 +156,69 @@ int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2) {
     rop->length = length;
     return carry;
 }
+
+static inline bignum_elem_t lo(bignum_elem_t elem) {
+    // Return the value of the lower bits of elem.
+    return elem & BIGNUM_ELEM_LO;
+}
+
+static inline bignum_elem_t hi(bignum_elem_t elem) {
+    // Return the value of the higher bits of elem.
+    return (elem & BIGNUM_ELEM_HI) >> BIGNUM_ELEM_SIZE * 4;
+}
+
+int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2) {
+    // rop = op1 * op2
+    bignum_elem_t result;
+    bignum_elem_t lo1, hi1, lo2, hi2;
+    bignum_elem_t carry = 0;
+    bignum_elem_t elem1, elem2;
+
+    size_t length = 0;
+    int overflow = 0;
+    int i, j;
+
+    size_t max_length = op1->length + op2->length;
+    if (max_length > rop->max_length)
+        max_length = rop->max_length;
+
+    // Calculation starts here.
+    for (int pos=0; pos<max_length; pos++) {
+        result = carry;
+        carry = 0;
+
+        for (i=0; i<op1->length; i++) {
+            j = pos - i;
+            if (j >= op2->length)
+                continue;
+            else if (j < 0)
+                break;
+
+            elem1 = op1->v[i];
+            elem2 = op2->v[j];
+            lo1 = lo(elem1);
+            lo2 = lo(elem2);
+            hi1 = hi(elem1);
+            hi2 = hi(elem2);
+
+            result += lo1 * lo2;
+            result += (hi1 * lo2) << BIGNUM_ELEM_SIZE * 4;
+            result += (lo1 * hi2) << BIGNUM_ELEM_SIZE * 4;
+
+            carry += hi1 * hi2;
+            carry += hi(hi1 * lo2);
+            carry += hi(lo1 * hi2);
+        }
+
+        if (result != 0)
+            length = pos+1;
+
+        rop->v[pos] = result;
+    }
+
+    if (carry != 0 || length < op1->length || length < op2->length)
+        overflow = 1;
+
+    rop->length = length;
+    return overflow;
+}
