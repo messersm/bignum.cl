@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #include "bignum.h"
-#include "test.c" // Provides run_test()
+#include "test.c" // Provides run_test() and assert_*
 
 // All tests return 1 for success and 0 for failure.
 
