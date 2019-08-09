@@ -108,50 +108,62 @@ int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2) {
     // Return 1, if the operation caused an overflow and 0 otherwise.
     int carry = 0;
     bignum_elem_t result;
+    const bignum_t *shorter, *longer;
     size_t length = 0;
 
-    // Calculate the maximum length of relevant indices.
+    // Find longer operand.
+    if (op1->length > op2->length) {
+        shorter = op2;
+        longer = op1;
+    }
+    else {
+        shorter = op1;
+        longer = op2;
+    }
+
+    // Calculate the maximum length.
     size_t max_length;
-    if (op1->length > op2->length)
-        max_length = op1->length + 1;
-    else
-        max_length = op2->length + 1;
-
-    if (max_length > rop->max_length)
+    if (longer->length + 1 > rop->max_length)
         max_length = rop->max_length;
+    else
+        max_length = longer->length + 1;
 
-    for (int i=0; i < max_length; i++) {
-        // Since rop could point to op1 or op2, the order of
-        // these commands is VERY important.
-        result = 0;
-
-        if (carry)
-            result += carry;
-
-        carry = 0;
-
-        if (i < op1->length) {
-            result += op1->v[i];
-
-            if (result < op1->v[i])
-                carry = 1;
+    // Add all numbers from the shorter and longer operand
+    int i;
+    for (i=0; i < shorter->length && i<max_length; i++) {
+        result = carry + shorter->v[i] + longer->v[i];
+        if (result < shorter->v[i]) {
+            if (result > 0)
+                length = i + 1;
+            carry = 1;
         }
-
-        if (i < op2->length) {
-            result += op2->v[i];
-
-            if (result < op2->v[i])
-                carry = 1;
+        else {
+            length = i + 1;
+            carry = 0;
         }
-
-        if (result != 0)
-            length = i+1;
-
         rop->v[i] = result;
     }
 
-    if (length < op1->length || length < op2->length)
-        carry = 1;
+    // Add all numbers from the longer operand.
+    for (i=shorter->length; i < longer->length && i<max_length; i++) {
+        result = carry + longer->v[i];
+        if (result < longer->v[i]) {
+            if (result > 0)
+                length = i + 1;
+            carry = 1;
+        }
+        else {
+            length = i + 1;
+            carry = 0;
+        }
+        rop->v[i] = result;
+    }
+
+    if (carry != 0 && max_length > longer->length) {
+        rop->v[longer->length] = carry;
+        length = longer->length + 1;
+        carry = 0;
+    }
 
     rop->length = length;
     return carry;
