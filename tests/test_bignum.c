@@ -62,6 +62,18 @@ int test_assoc_zero() {
 }
 
 /**
+ * @brief Associating a bignum_t with an array, does not change the
+ *        underlying data. It especially doesn't zero random data from
+ *        uninitialized arrays.
+**/
+int test_assoc_no_data_change() {
+    bignum_t x;
+    bignum_elem_t data[4] = {1, 2, 3, 4};
+    bignum_assoc(&x, data, 4);
+    return data[0] == 1 && data[1] == 2 && data[2] == 3 && data[3] == 4;
+}
+
+/**
  * @brief Calling bignum_sync sets the correct length on a bignum_t.
 **/
 int test_sync_length() {
@@ -133,21 +145,35 @@ int test_cmp_equal_length_and_data() {
     return bignum_cmp(&a, &b) == 0;
 }
 
+int add_length_zero_zero() {
+    bignum_t a, b, c;
+    bignum_assoc(&a, NULL, 0);
+    bignum_assoc(&b, NULL, 0);
+
+    bignum_elem_t c_elements[4] = {1, 2, 3, 4};
+    bignum_assoc(&c, c_elements, 4);
+    bignum_add(&c, &a, &b);
+
+    return c.length == 0;
+}
+
 int main() {
     printf("Testing bignum.h specification...\n");
 
-    run_test("assoc() correctly sets bignum_t.max_length", test_assoc_max_length);
-    run_test("assoc() correctly sets bignum_t.length", test_assoc_length);
-    run_test("assoc() works with NULL on zero-length bignums", test_assoc_zero_null);
-    run_test("assoc() works with zero-length", test_assoc_zero);
+    run_test("assoc() correctly sets bignum_t.max_length.", test_assoc_max_length);
+    run_test("assoc() correctly sets bignum_t.length.", test_assoc_length);
+    run_test("assoc() works with NULL on zero-length bignums.", test_assoc_zero_null);
+    run_test("assoc() works with zero-length.", test_assoc_zero);
+    run_test("assoc() does not change underlying data.", test_assoc_no_data_change);
 
-    run_test("sync() correctly sets bignum_t.length", test_sync_length);
+    run_test("sync() correctly sets bignum_t.length.", test_sync_length);
 
-    run_test("zero() zeros out all associated data", test_zero_data);
-    run_test("zero() works independent of bignum_t.length", test_zero_data_wrong_length);
-    run_test("zero() sets bignum_t.length to zero", test_zero_length);
+    run_test("zero() zeros out all associated data.", test_zero_data);
+    run_test("zero() works independent of bignum_t.length.", test_zero_data_wrong_length);
+    run_test("zero() sets bignum_t.length to zero.", test_zero_length);
 
-    run_test("cmp() returns 0 on numbers with equal length and data", test_cmp_equal_length_and_data);
+    run_test("cmp() returns 0 on numbers with equal length and data.", test_cmp_equal_length_and_data);
+    run_test("add() correctly sets rop.length, for zero length ops.", add_length_zero_zero);
 
     return test_status; // included by test.c
 }
