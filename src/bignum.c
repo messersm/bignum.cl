@@ -3,8 +3,9 @@
 /*
  * Memory association and handling:
  *  - bignum_assoc()
- *  - bignum_sync()
+ *  - bignum_sync() -> TODO: Rename to bignum_read
  *  - bignum_zero()
+ *  TODO: Add bignum_write
 **/
 void bignum_sync(bignum_t *num) {
     // Synchronize bignum metadata with the underlying memory.
@@ -97,4 +98,55 @@ int bignum_cmp_ui(const bignum_t *op1, const bignum_elem_t op2) {
         return -1;
     else
         return 0;
+}
+
+/*
+ *  Calculating big numbers
+**/
+int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2) {
+    // rop = op1 + op2
+    // Return 1, if the operation caused an overflow and 0 otherwise.
+    int carry = 0;
+    bignum_elem_t result;
+    size_t length = 0;
+
+    for (int i=0; i < rop->max_length; i++) {
+        // Since rop could point to op1 or op2, the order of
+        // these commands is VERY important.
+        result = 0;
+
+        if (carry) {
+            result += carry;
+            length = i;
+        }
+
+        carry = 0;
+
+        if (i < op1->length) {
+            result += op1->v[i];
+            length = i;
+
+            if (result < op1->v[i])
+                carry = 1;
+        }
+
+        if (i < op2->length) {
+            length = i;
+            result += op2->v[i];
+
+            if (result < op2->v[i])
+                carry = 1;
+        }
+
+        rop->v[i] = result;
+
+        if (length < i)
+            break;
+    }
+
+    if (length < op1->length || length < op2->length)
+        carry = 1;
+
+    rop->length = length;
+    return carry;
 }
