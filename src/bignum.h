@@ -74,10 +74,10 @@ typedef struct bignum {
 #define BIGNUM_4096 (BIGNUM_512*8)
 
 /** @brief Bitmask for the lower half of a bignum_elem_t */
-const static bignum_elem_t BIGNUM_ELEM_LO = (BIGNUM_ELEM_MAX >> BIGNUM_ELEM_SIZE*4);
+extern bignum_elem_t BIGNUM_ELEM_LO;
 
 /** @brief Bitmask for the upper half of a bignum_elem_t */
-const static bignum_elem_t BIGNUM_ELEM_HI = (BIGNUM_ELEM_MAX << BIGNUM_ELEM_SIZE*4);
+extern bignum_elem_t BIGNUM_ELEM_HI;
 
 /**
  * @brief Associate num_elements in arr with num.
@@ -147,5 +147,12 @@ int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2);
  * @Returns 1, if an overflow occured and 0 otherwise.
 **/
 int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2);
+
+/**
+ * @brief Sets rop = op1 / op2.
+ *
+ * @Returns Remainder of the operation.
+**/
+bignum_elem_t bignum_divmod_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2);
 
 #endif // __BIGNUM_H

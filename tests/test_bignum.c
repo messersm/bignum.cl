@@ -309,6 +309,51 @@ int test_mul_overflow() {
            assert_equal_int(ret, 1);
 }
 
+int test_divmod_ui_no_carry() {
+    // c = a / b
+    bignum_t a, c, x;
+
+    bignum_elem_t a_elem[4] = {102, 2665, 4223, 82};
+    bignum_elem_t b = 41;
+    bignum_elem_t c_elem[4] = {2, 65, 103, 2};
+    bignum_elem_t r = 20;
+
+    bignum_elem_t x_elem[10];
+
+    bignum_assoc(&a, a_elem, 4);
+    bignum_assoc(&c, c_elem, 4);
+    bignum_assoc(&x, x_elem, 10);
+
+    bignum_elem_t y = bignum_divmod_ui(&x, &a, b);
+
+    return assert_equal_bignum(&x, &c) &&
+           assert_equal_elem(y, r);
+}
+
+int test_divmod_ui_carry() {
+    // c = a / b
+    bignum_t a, c, x;
+
+    bignum_elem_t a_elem[4] = {15, 0, 0, BIGNUM_ELEM_MAX};
+
+    // This is base / 2, so we shift a by n/2 bits, where n is
+    // the number of bits in a bignum_elem_t.
+    bignum_elem_t b = BIGNUM_ELEM_LO + 1;
+    bignum_elem_t c_elem[4] = {0, 0, BIGNUM_ELEM_HI, BIGNUM_ELEM_LO};
+    bignum_elem_t r = 15;
+
+    bignum_elem_t x_elem[10];
+
+    bignum_assoc(&a, a_elem, 4);
+    bignum_assoc(&c, c_elem, 4);
+    bignum_assoc(&x, x_elem, 10);
+
+    bignum_elem_t y = bignum_divmod_ui(&x, &a, b);
+
+    return assert_equal_bignum(&x, &c) &&
+           assert_equal_elem(y, r);
+}
+
 int main() {
     printf("Testing bignum.h specification...\n");
 
@@ -338,6 +383,9 @@ int main() {
     run_test("mul() with no carry works and returns 0.", test_mul_no_carry);
     run_test("mul() with carry works and returns 0, if no overflow occurs.", test_mul_carry_no_overflow);
     run_test("mul() with carry works and returns 1, if an overflow occurs.", test_mul_overflow);
+
+    run_test("divmod_ui() without carry works and returns the correct remainder.", test_divmod_ui_no_carry);
+    run_test("divmod_ui() with carry works and returns the correct remainder.", test_divmod_ui_carry);
 
     return test_status; // included by test.c
 }

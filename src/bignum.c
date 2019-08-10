@@ -1,5 +1,9 @@
 #include "bignum.h"
 
+// declared as extern by bignum.h
+bignum_elem_t BIGNUM_ELEM_LO = (BIGNUM_ELEM_MAX >> BIGNUM_ELEM_SIZE*4);
+bignum_elem_t BIGNUM_ELEM_HI = (BIGNUM_ELEM_MAX << BIGNUM_ELEM_SIZE*4);
+
 /*
  * Memory association and handling:
  *  - bignum_assoc()
@@ -233,4 +237,66 @@ int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2) {
 
     rop->length = length;
     return overflow;
+}
+
+bignum_elem_t bignum_divmod_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2) {
+    // rop = op1 / op2
+    // Returns remainder.
+
+    // Calculate quotient and remainder of base / op2.
+    // This is used for later calculating the remainder
+    bignum_elem_t base_q;
+    bignum_elem_t base_r;
+
+    // base_r == elem_max + 1 (mod op2)
+    base_r = (BIGNUM_ELEM_MAX % op2 + 1) % op2;
+
+    // For this, consider base = 16, elem_max = 15 and op2 = 8:
+    // 16 = 2 * 8 + 0
+    // 15 = 1 * 8 + 7
+    //      q  op2  r
+    // So we have to add 1 exactly if base_r is 0.
+    if (base_r == 0)
+        base_q = BIGNUM_ELEM_MAX / op2 + 1;
+    else
+        base_q = BIGNUM_ELEM_MAX / op2;
+
+    bignum_elem_t last_r;
+    bignum_elem_t remainder = 0;
+    bignum_elem_t result;
+
+    // result = v[i] / op2 + remainder * base_q
+
+    int i;
+    size_t length = 0;
+
+    size_t max_length;
+    if (op1->length > rop->max_length)
+        max_length = rop->max_length;
+    else
+        max_length = op1->length;
+
+    // "Skip" too large indicies, but calculate the remainder.
+    for (i=op1->length-1; i>=max_length; i--) {
+        last_r = remainder;
+        result = op1->v[i] / op2;
+        result += last_r * base_q;
+        remainder = op1->v[i] % op2;
+        remainder += last_r * base_r;
+    }
+
+    for (i=max_length-1; i>=0; i--) {
+        last_r = remainder;
+        result = op1->v[i] / op2;
+        result += last_r * base_q;
+        remainder = op1->v[i] % op2;
+        remainder += last_r * base_r;
+
+        rop->v[i] = result;
+        if (length == 0 && result != 0)
+            length = i+1;
+    }
+
+    rop->length = length;
+    return remainder;
 }

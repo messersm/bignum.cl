@@ -30,6 +30,16 @@ int assert_equal_int(int actual, int expected) {
     return ret == 1;
 }
 
+int assert_equal_elem(bignum_elem_t actual, bignum_elem_t expected) {
+    int ret = expected == actual;
+    if (ret != 1) {
+        printf(" * assert_equal_elem() failed:\n");
+        printf(" * Actual  : %lu\n", actual);
+        printf(" * Expected: %lu\n", expected);
+    }
+    return ret == 1;
+}
+
 int test_status = 0;
 
 void run_test(char *desc, int (*test)()) {
