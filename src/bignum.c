@@ -1,9 +1,5 @@
 #include "bignum.h"
 
-// declared as extern by bignum.h
-bignum_elem_t BIGNUM_ELEM_LO = (BIGNUM_ELEM_MAX >> BIGNUM_ELEM_SIZE*4);
-bignum_elem_t BIGNUM_ELEM_HI = (BIGNUM_ELEM_MAX << BIGNUM_ELEM_SIZE*4);
-
 /*
  * Memory association and handling:
  *  - bignum_assoc()

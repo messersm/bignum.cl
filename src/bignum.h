@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 /**
  * @file
  * @brief Declares basic types and core functions of the bignum.cl library.
@@ -12,6 +10,14 @@
  */
 #ifndef __BIGNUM_H
 #define __BIGNUM_H
+
+/* OpenCL C defines size_t by itself, but cannot include <stdlib.h>
+ * OpenCL C defines __OPENCL_VERSION__ according to the
+ * OpenCL C 2.0 Specification (p. 48)
+**/
+#ifndef __OPENCL_VERSION__
+#include <stdlib.h>
+#endif
 
 #ifndef BIGNUM_ELEM_TYPE
 /**
@@ -73,11 +79,16 @@ typedef struct bignum {
 /** @brief array size required for 4096 bit numbers */
 #define BIGNUM_4096 (BIGNUM_512*8)
 
+/* TODO? BIGNUM_ELEM_LO and BIGNUM_ELEM_HI would be better
+ * defined as a extern const bignum_elem_t but OpenCL has a problem with that:
+ * Compare git commit 9dfb9e4efcd841c0ce3b8ad28b7c9744e51e967d
+**/
+
 /** @brief Bitmask for the lower half of a bignum_elem_t */
-extern bignum_elem_t BIGNUM_ELEM_LO;
+#define BIGNUM_ELEM_LO (BIGNUM_ELEM_MAX >> BIGNUM_ELEM_SIZE*4)
 
 /** @brief Bitmask for the upper half of a bignum_elem_t */
-extern bignum_elem_t BIGNUM_ELEM_HI;
+#define BIGNUM_ELEM_HI (BIGNUM_ELEM_MAX << BIGNUM_ELEM_SIZE*4)
 
 /**
  * @brief Associate num_elements in arr with num.
