@@ -1,11 +1,46 @@
-/**
- * @file
- * @brief Specification of bignum.h
-**/
-#include <stdio.h>
-
 #include "bignum.h"
-#include "test.c" // Provides run_test() and assert_*
+
+// If you run this from C, you have to include <stdio.h>
+
+// helper functions
+int assert_equal_bignum(bignum_t *actual, bignum_t *expected) {
+    int ret = bignum_cmp(expected, actual);
+
+    if (ret != 0) {
+        printf(" * assert_equal_bignum() failed:\n");
+        printf(" * Actual  : ");
+        for (int i=0; i<actual->length; i++)
+            printf("%lu, ", actual->v[i]);
+        printf("\n");
+        printf(" * Expected: ");
+        for (int i=0; i<expected->length; i++)
+            printf("%lu, ", expected->v[i]);
+        printf("\n");
+    }
+
+    return ret == 0;
+}
+
+int assert_equal_int(int actual, int expected) {
+    int ret = expected == actual;
+    if (ret != 1) {
+        printf(" * assert_equal_int() failed:\n");
+        printf(" * Actual  : %d\n", actual);
+        printf(" * Expected: %d\n", expected);
+    }
+
+    return ret == 1;
+}
+
+int assert_equal_elem(bignum_elem_t actual, bignum_elem_t expected) {
+    int ret = expected == actual;
+    if (ret != 1) {
+        printf(" * assert_equal_elem() failed:\n");
+        printf(" * Actual  : %lu\n", actual);
+        printf(" * Expected: %lu\n", expected);
+    }
+    return ret == 1;
+}
 
 // All tests return 1 for success and 0 for failure.
 
@@ -352,40 +387,4 @@ int test_divmod_ui_carry() {
 
     return assert_equal_bignum(&x, &c) &&
            assert_equal_elem(y, r);
-}
-
-int main() {
-    printf("Testing bignum.h specification...\n");
-
-    run_test("assoc() correctly sets bignum_t.max_length.", test_assoc_max_length);
-    run_test("assoc() correctly sets bignum_t.length.", test_assoc_length);
-    run_test("assoc() works with NULL on zero-length bignums.", test_assoc_zero_null);
-    run_test("assoc() works with zero-length.", test_assoc_zero);
-    run_test("assoc() does not change underlying data.", test_assoc_no_data_change);
-
-    run_test("sync() correctly sets bignum_t.length.", test_sync_length);
-
-    run_test("zero() zeros out all associated data.", test_zero_data);
-    run_test("zero() works independent of bignum_t.length.", test_zero_data_wrong_length);
-    run_test("zero() sets bignum_t.length to zero.", test_zero_length);
-
-    run_test("cmp() returns 0 on numbers with equal length and data.", test_cmp_equal_length_and_data);
-
-    run_test("add() correctly sets rop.length, for zero length ops.", test_add_length_zero_zero);
-
-    run_test("add() works, if no carry occurs.", test_add_no_carry);
-    run_test("add() works, if a carry, but no overflow occurs.", test_add_carry_no_overflow);
-    run_test("add() works, if an overflow occurs.", test_add_overflow);
-
-    run_test("add() sets correct data when overflowing to zero.", test_add_data_overflow_to_zero);
-    run_test("add() sets correct length when overflowing to zero.", test_add_length_overflow_to_zero);
-
-    run_test("mul() with no carry works and returns 0.", test_mul_no_carry);
-    run_test("mul() with carry works and returns 0, if no overflow occurs.", test_mul_carry_no_overflow);
-    run_test("mul() with carry works and returns 1, if an overflow occurs.", test_mul_overflow);
-
-    run_test("divmod_ui() without carry works and returns the correct remainder.", test_divmod_ui_no_carry);
-    run_test("divmod_ui() with carry works and returns the correct remainder.", test_divmod_ui_carry);
-
-    return test_status; // included by test.c
 }

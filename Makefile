@@ -1,10 +1,15 @@
 bignum.o: src/bignum.c src/bignum.h
 	gcc -c -Wall -Werror -fpic src/bignum.c
 
-test_bignum.out: bignum.o tests/test.c tests/test_bignum.c
-	gcc -L. -I src -o test_bignum.out tests/test_bignum.c bignum.o
+c_tests: bignum.o src/bignum.c src/bignum.h tests/tests.c tests/c_tests.c
+	python scripts/wrap_tests.py --info tests/tests.c > tests/tests_info.c.tmp
+	gcc -L. -I src -I tests -o c_tests.out tests/c_tests.c bignum.o
+	./c_tests.out
 
-run_bignum_test: test_bignum.out
-	./test_bignum.out
+cl_tests: bignum.o src/bignum.c src/bignum.h tests/tests.c tests/cl_tests.c
+	python scripts/wrap_tests.py --info tests/tests.c > tests/tests_info.c.tmp
+	python scripts/wrap_tests.py tests/tests.c > tests/tests_wrappers.cl.tmp
+	gcc -L. -I src -o cl_tests.out tests/cl_tests.c bignum.o -lOpenCL
+	./cl_tests.out
 
-run_tests: run_bignum_test
+tests: c_tests cl_tests
