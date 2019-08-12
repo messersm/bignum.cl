@@ -235,7 +235,7 @@ int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2) {
     return overflow;
 }
 
-bignum_elem_t bignum_divmod_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2) {
+bignum_elem_t bignum_divmod_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2) {
     // rop = op1 / op2
     // Returns remainder.
 
@@ -294,5 +294,28 @@ bignum_elem_t bignum_divmod_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2) 
     }
 
     rop->length = length;
+    return remainder;
+}
+
+bignum_elem_t bignum_mod_ui(const bignum_t *op1, const bignum_elem_t op2) {
+    // rop = op1 / op2
+    // Returns remainder.
+
+    // Calculate quotient and remainder of base / op2.
+    // This is used for later calculating the remainder
+    bignum_elem_t base_r;
+
+    // base_r == elem_max + 1 (mod op2)
+    base_r = (BIGNUM_ELEM_MAX % op2 + 1) % op2;
+
+    bignum_elem_t last_r;
+    bignum_elem_t remainder = 0;
+
+    for (int i=op1->length-1; i>=0; i--) {
+        last_r = remainder;
+        remainder = op1->v[i] % op2;
+        remainder += last_r * base_r;
+    }
+
     return remainder;
 }

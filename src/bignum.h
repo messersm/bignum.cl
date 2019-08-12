@@ -164,6 +164,11 @@ int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2);
  *
  * @Returns Remainder of the operation.
 **/
-bignum_elem_t bignum_divmod_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2);
+bignum_elem_t bignum_divmod_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2);
+
+/**
+ * @brief Return op1 % op2.
+**/
+bignum_elem_t bignum_mod_ui(const bignum_t *op1, const bignum_elem_t op2);
 
 #endif // __BIGNUM_H
