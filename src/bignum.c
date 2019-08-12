@@ -63,6 +63,18 @@ int bignum_set_ui(bignum_t *rop, const bignum_elem_t op) {
 }
 
 /*
+ * Getting big numbers:
+ *  - bignum_get_ui()
+**/
+bignum_elem_t bignum_get_ui(const bignum_t *op) {
+    if (op->length == 0)
+        return 0;
+    else
+        return op->v[0];
+}
+
+
+/*
  * Comparing big integers
  *  - bignum_cmp()
  *  - bignum_cmp_ui()

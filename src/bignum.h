@@ -132,6 +132,14 @@ int bignum_set(bignum_t *rop, const bignum_t *op);
 int bignum_set_ui(bignum_t *rop, const bignum_elem_t op);
 
 /**
+ * @brief Return a bignum_elem_t representing to lowest field of op.
+ *
+ * This returns op % (BIGNUM_ELEM_MAX+1), which will be the correct value,
+ * if op <= BIGNUM_ELEM_MAX.
+**/
+bignum_elem_t bignum_get_ui(const bignum_t *op);
+
+/**
  * Compare two numbers of type bignum_t
  *
  * @Returns -1 if op1 < op2, 1 if op1 > op2 and 0 if both are equal.
