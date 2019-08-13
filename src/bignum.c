@@ -25,7 +25,7 @@ void bignum_assoc(bignum_t *num, bignum_elem_t *arr, const size_t num_elements){
 void bignum_assoc_at(bignum_t *num, bignum_elem_t *arr, const size_t num_elements, const size_t index) {
     // Associate num_elements in arr with num.
     num->max_length = num_elements;
-    num->v = &arr[num_elemets*index];
+    num->v = &arr[num_elements*index];
     bignum_sync(num);
 }
 
