@@ -175,6 +175,14 @@ int bignum_cmp_ui(const bignum_t *op1, const bignum_elem_t op2);
 int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2);
 
 /**
+ * @brief Set rop = op1 + op2.
+ *
+ * @Returns 1, if an overflow occured and 0 otherwise.
+**/
+int bignum_add_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2);
+
+
+/**
  * @brief Set rop = op1 * op2.
  *
  * @Returns 1, if an overflow occured and 0 otherwise.

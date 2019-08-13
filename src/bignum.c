@@ -193,6 +193,59 @@ int bignum_add(bignum_t *rop, const bignum_t *op1, const bignum_t *op2) {
     return carry;
 }
 
+int bignum_add_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2) {
+    int carry = 0;
+    bignum_elem_t result;
+
+    // Calculate the maximum length.
+    size_t max_length;
+    if (op1->length + 1 > rop->max_length)
+        max_length = rop->max_length;
+    else
+        max_length = op1->length + 1;
+
+    size_t length = 0;
+    if (rop->max_length > 0) {
+        result = op1->v[0] + op2;
+        if (result < op2) {
+            if (result > 0)
+                length = 1;
+            carry = 1;
+        }
+        else {
+            length = 1;
+            carry = 0;
+        }
+    }
+    else if (op2 > 0)
+        carry = 1;
+
+    // Add all numbers from op1 + carry.
+    int i;
+    for (i=1; i<max_length; i++) {
+        result = carry + op1->v[i];
+        if (result < op1->v[i]) {
+            if (result > 0)
+                length = i + 1;
+            carry = 1;
+        }
+        else {
+            length = i + 1;
+            carry = 0;
+        }
+        rop->v[i] = result;
+    }
+
+    if (carry != 0 && max_length > op1->length) {
+        rop->v[op1->length] = carry;
+        length = op1->length + 1;
+        carry = 0;
+    }
+
+    rop->length = length;
+    return carry;
+}
+
 static inline bignum_elem_t lo(bignum_elem_t elem) {
     // Return the value of the lower bits of elem.
     return elem & BIGNUM_ELEM_LO;
