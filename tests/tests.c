@@ -109,6 +109,25 @@ int test_assoc_no_data_change() {
 }
 
 /**
+ * @brief Associating a bignum_t with an array at an index works.
+**/
+
+int test_assoc_at() {
+    bignum_t a, b, x, y;
+    bignum_elem_t ab_elem[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+    bignum_elem_t x_elem[4] = {1, 2, 3, 4};
+    bignum_elem_t y_elem[4] = {5, 6, 7, 8};
+
+    bignum_assoc_at(&a, ab_elem, 4, 0);
+    bignum_assoc_at(&b, ab_elem, 4, 1);
+    bignum_assoc(&x, x_elem, 4);
+    bignum_assoc(&y, y_elem, 4);
+
+    return assert_equal_bignum(&a, &x) &&
+           assert_equal_bignum(&b, &y);
+}
+
+/**
  * @brief Calling bignum_sync sets the correct length on a bignum_t.
 **/
 int test_sync_length() {
