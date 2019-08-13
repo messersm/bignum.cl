@@ -15,6 +15,11 @@ void bignum_sync(bignum_t *num) {
             num->length = i+1;
 }
 
+void bignum_write(bignum_t *num) {
+    for (int i=num->length; i < num->max_length; i++)
+        num->v[i] = 0;
+}
+
 void bignum_assoc(bignum_t *num, bignum_elem_t *arr, const size_t num_elements){
     // Associate num_elements in arr with num.
     num->max_length = num_elements;

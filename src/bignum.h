@@ -118,6 +118,18 @@ void bignum_assoc_at(bignum_t *num, bignum_elem_t *arr, const size_t num_element
 **/
 void bignum_sync(bignum_t *num);
 
+/*
+ * @brief Synchronize the underlying memory with the bignum metadata.
+ *
+ * All this does, is to fill the underlying array with zeros
+ * at indices with num->length <= index < num->max_length.
+ *
+ * After calling bignum_write, all bignum_ts associated
+ * with the underlying memory can call bignum_sync() and
+ * will then represent the correct number.
+**/
+void bignum_write(bignum_t *num);
+
 /**
  * @brief Zero out all memory associated with num.
 **/
