@@ -189,6 +189,8 @@ int bignum_add_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2);
 **/
 int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2);
 
+int bignum_mul_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2);
+
 /**
  * @brief Sets rop = op1 / op2.
  *

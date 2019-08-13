@@ -312,6 +312,56 @@ int bignum_mul(bignum_t *rop, bignum_t *op1, bignum_t *op2) {
     return overflow;
 }
 
+
+int bignum_mul_ui(bignum_t *rop, bignum_t *op1, bignum_elem_t op2) {
+    // rop = op1 * op2
+    bignum_elem_t result;
+    bignum_elem_t lo1, hi1, lo2, hi2;
+    bignum_elem_t carry = 0;
+    bignum_elem_t elem1, elem2;
+
+    size_t length = 0;
+    int overflow = 0;
+
+    size_t max_length;
+    if (op1->length > rop->max_length)
+        max_length = rop->max_length;
+    else
+        max_length = op1->length;
+
+    // Calculation starts here.
+    for (int pos=0; pos<max_length; pos++) {
+        result = carry;
+        carry = 0;
+
+        elem1 = op1->v[pos];
+        elem2 = op2;
+        lo1 = lo(elem1);
+        lo2 = lo(elem2);
+        hi1 = hi(elem1);
+        hi2 = hi(elem2);
+
+        result += lo1 * lo2;
+        result += (hi1 * lo2) << BIGNUM_ELEM_SIZE * 4;
+        result += (lo1 * hi2) << BIGNUM_ELEM_SIZE * 4;
+
+        carry += hi1 * hi2;
+        carry += hi(hi1 * lo2);
+        carry += hi(lo1 * hi2);
+
+        if (result != 0)
+            length = pos+1;
+
+        rop->v[pos] = result;
+    }
+
+    if (carry != 0 || length < op1->length || length < 1)
+        overflow = 1;
+
+    rop->length = length;
+    return overflow;
+}
+
 bignum_elem_t bignum_divmod_ui(bignum_t *rop, const bignum_t *op1, const bignum_elem_t op2) {
     // rop = op1 / op2
     // Returns remainder.
