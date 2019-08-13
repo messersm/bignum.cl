@@ -22,6 +22,13 @@ void bignum_assoc(bignum_t *num, bignum_elem_t *arr, const size_t num_elements){
     bignum_sync(num);
 }
 
+void bignum_assoc_at(bignum_t *num, bignum_elem_t *arr, const size_t num_elements, const size_t index) {
+    // Associate num_elements in arr with num.
+    num->max_length = num_elements;
+    num->v = &arr[num_elemets*index];
+    bignum_sync(num);
+}
+
 void bignum_zero(bignum_t *num) {
     // Zero out all memory associated with num.
     for (int i=0; i < num->max_length; i++)

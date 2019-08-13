@@ -111,6 +111,8 @@ typedef struct bignum {
  */
 void bignum_assoc(bignum_t *num, bignum_elem_t *arr, const size_t num_elements);
 
+void bignum_assoc_at(bignum_t *num, bignum_elem_t *arr, const size_t num_elements, const size_t index);
+
 /**
  * @brief Synchronize bignum metadata with the underlying memory.
 **/
